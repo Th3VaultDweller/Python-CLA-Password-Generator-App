@@ -1,3 +1,6 @@
+import random
+import string
+
 character_list = [
     "A",
     "B",
@@ -26,3 +29,6 @@ character_list = [
     "Y",
     "Z",
 ]
+
+password = random.choice(character_list)
+print(password)
