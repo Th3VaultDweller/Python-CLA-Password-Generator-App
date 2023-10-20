@@ -1,7 +1,7 @@
 import random
 import string
 
-characters_list = [
+letters_list = [
     "A",
     "B",
     "C",
@@ -91,13 +91,13 @@ symbols_list = [
 
 def password():
     random_symbols = (
-        random.choice(characters_list)
+        random.choice(letters_list)
         + random.choice(numbers_list)
         + random.choice(symbols_list)
         + random.choice(numbers_list)
         + random.choice(symbols_list)
-        + random.choice(characters_list)
-        + random.choice(characters_list)
+        + random.choice(letters_list)
+        + random.choice(letters_list)
         + random.choice(symbols_list)
     )
     print(random_symbols)
