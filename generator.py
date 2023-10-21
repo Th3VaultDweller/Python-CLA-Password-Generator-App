@@ -122,11 +122,15 @@ if path:
     f.close
 else:
     f = open("generated_passwords.txt", "w+")
-    f.write(
-        f"{today:%B %d, %Y}\n Here's your password: {(str(password(1))[:25])} \r\n"
-    )
+    f.write(f"{today:%B %d, %Y}\n Here's your password: {(str(password(1))[:25])} \r\n")
     f.close
 
 
 print(f"Here's your password: {generated_password}")
-print("Run the app again to generate a new one.")
+
+input("Run the app again to generate a new one? y/N")
+if input == "y":
+    print(f"Here's another password: {generated_password}")
+    f = open("generated_passwords.txt", "a")
+    f.write(f"{today:%B %d, %Y}\n Here's your password: {(str(password(1))[:25])} \r\n")
+    f.close
