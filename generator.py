@@ -89,7 +89,7 @@ symbols_list = [
 ]
 
 
-def password():
+def password(random_symbols):
     random_symbols = (
         random.choice(letters_list)
         + random.choice(numbers_list)
@@ -99,10 +99,15 @@ def password():
         + random.choice(letters_list)
         + random.choice(letters_list)
         + random.choice(symbols_list)
+        + random.choice(letters_list)
+        + random.choice(letters_list)
+        + random.choice(symbols_list)
+        + random.choice(numbers_list)
+        + random.choice(symbols_list)
     )
-    print(random_symbols)
+    return random_symbols
 
 
-print("Here's your password:")
-password()
+generated_password = str(password(1))[:25]
+print(f"Here's your password: {generated_password}")
 print("Run the app again to generate a new one.")
