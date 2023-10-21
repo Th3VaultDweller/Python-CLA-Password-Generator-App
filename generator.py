@@ -123,7 +123,7 @@ if path:
 else:
     f = open("generated_passwords.txt", "w+")
     f.write(
-        f"{today:%B %d, %Y}\n Here's your another password: {(str(password(1))[:25])} \r\n"
+        f"{today:%B %d, %Y}\n Here's your password: {(str(password(1))[:25])} \r\n"
     )
     f.close
 
