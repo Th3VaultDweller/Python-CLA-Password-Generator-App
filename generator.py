@@ -103,4 +103,6 @@ def password():
     print(random_symbols)
 
 
+print("Here's your password:")
 password()
+print("Run the app again to generate a new one.")
