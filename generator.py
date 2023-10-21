@@ -1,5 +1,8 @@
 import random
 import string
+from os.path import exists, isfile
+
+path = "generated_passwords.txt"
 
 letters_list = [
     "A",
@@ -109,11 +112,14 @@ def password(random_symbols):
 
 
 generated_password = str(password(1))[:25]
-
-
-f = open("generated_passwords.txt", "w+")
-f.write(f"This is your generated password: {(str(password(1))[:25])}")
-f.close
+if path:
+    f = open("generated_passwords.txt", "a")
+    f.write(f"This is your another generated password: {(str(password(1))[:25])} \n")
+    f.close
+else:
+    f = open("generated_passwords.txt", "w+")
+    f.write(f"This is your another generated password: {(str(password(1))[:25])} \n")
+    f.close
 
 
 print(f"Here's your password: {generated_password}")
