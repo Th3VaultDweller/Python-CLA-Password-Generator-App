@@ -114,11 +114,11 @@ def password(random_symbols):
 generated_password = str(password(1))[:25]
 if path:
     f = open("generated_passwords.txt", "a")
-    f.write(f"This is your another generated password: {(str(password(1))[:25])} \n")
+    f.write(f"Here's your another password: {(str(password(1))[:25])} \r\n")
     f.close
 else:
     f = open("generated_passwords.txt", "w+")
-    f.write(f"This is your another generated password: {(str(password(1))[:25])} \n")
+    f.write(f"Here's your another password: {(str(password(1))[:25])} \r\n")
     f.close
 
 
