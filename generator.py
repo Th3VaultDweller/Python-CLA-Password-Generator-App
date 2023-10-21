@@ -1,3 +1,4 @@
+import datetime
 import random
 import string
 from os.path import exists, isfile
@@ -112,13 +113,18 @@ def password(random_symbols):
 
 
 generated_password = str(password(1))[:25]
+today = datetime.datetime.today()
 if path:
     f = open("generated_passwords.txt", "a")
-    f.write(f"Here's your another password: {(str(password(1))[:25])} \r\n")
+    f.write(
+        f"{today:%B %d, %Y}\n Here's your another password: {(str(password(1))[:25])} \r\n"
+    )
     f.close
 else:
     f = open("generated_passwords.txt", "w+")
-    f.write(f"Here's your another password: {(str(password(1))[:25])} \r\n")
+    f.write(
+        f"{today:%B %d, %Y}\n Here's your another password: {(str(password(1))[:25])} \r\n"
+    )
     f.close
 
 
