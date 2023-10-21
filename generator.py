@@ -109,5 +109,12 @@ def password(random_symbols):
 
 
 generated_password = str(password(1))[:25]
+
+
+f = open("generated_passwords.txt", "w+")
+f.write(f"This is your generated password: {(str(password(1))[:25])}")
+f.close
+
+
 print(f"Here's your password: {generated_password}")
 print("Run the app again to generate a new one.")
