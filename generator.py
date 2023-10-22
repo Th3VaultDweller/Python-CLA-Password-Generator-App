@@ -7,116 +7,30 @@ path = "generated_passwords.txt"
 
 
 def password(random_symbols):
-    letters_list = [
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-        "G",
-        "H",
-        "I",
-        "J",
-        "K",
-        "L",
-        "M",
-        "N",
-        "O",
-        "P",
-        "Q",
-        "R",
-        "S",
-        "T",
-        "U",
-        "V",
-        "W",
-        "X",
-        "Y",
-        "Z",
-        "a",
-        "b",
-        "c",
-        "d",
-        "e",
-        "f",
-        "g",
-        "h",
-        "i",
-        "j",
-        "k",
-        "l",
-        "m",
-        "n",
-        "o",
-        "p",
-        "q",
-        "r",
-        "s",
-        "t",
-        "u",
-        "v",
-        "w",
-        "x",
-        "y",
-        "z",
-    ]
-    numbers_list = [
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "0",
-    ]
-    symbols_list = [
-        "~",
-        "@",
-        "#",
-        "$",
-        "%",
-        "^",
-        "&",
-        "*",
-        "(",
-        ")",
-        "-",
-        "_",
-        "+",
-        "=",
-        "|",
-        "/",
-        "?",
-        ".",
-    ]
-    random_symbols = (
-        random.choices(letters_list, k=5)
-        + random.choices(symbols_list, k=3)
-        + random.choices(numbers_list, k=2)
-        + random.choices(symbols_list, k=3)
-    )
+    random_symbols = random.choices(string.hexdigits, k=5)
+    +random.choices(string.hexdigits, k=5)
     return random_symbols
 
 
 generated_password = str(password(1))[:200]
-today = datetime.datetime.today()
+today = datetime.datetime.today()  # дата создания пароля
 if path:
+    # если файл существует, в него прикрепляется сгенерированный пароль
     f = open("generated_passwords.txt", "a")
     f.write(
-        f"{today:%B %d, %Y}\n Here's your another password: \r\n {generated_password} \r\n"
-    )
+        f"{today:%B %d, %Y}\n Here's your another password: 
+        \r\n {generated_password} \r\n")
     f.close
 else:
+    # если файла не существует, он создаётся, и в него записывается пароль
     f = open("generated_passwords.txt", "w+")
-    f.write(f"{today:%B %d, %Y}\n Here's your password: \r\n {generated_password} \r\n")
+    f.write(
+        f"{today:%B %d, %Y}\n Here's your password: 
+        \r\n {generated_password} \r\n")
     f.close
 
 
-print(f"Here's your password: {generated_password}")
+print(f"Here's your password: {(generated_password)}")
 
 input("Run the app again to generate a new one? y/N")
 if input == "y":
