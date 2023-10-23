@@ -15,7 +15,7 @@ def get_password(random_symbols):
     return random_symbols
 
 
-generated_password = (get_password(1))[:200]
+generated_password = (get_password(1))[:200] # есть скобки, пробелы и запятые
 password_no_brackets = "".join(generated_password)
 today = datetime.datetime.today()  # дата создания пароля
 
@@ -31,12 +31,3 @@ else:
     f = open("generated_passwords.txt", "w+")
     f.write(f"{today:%B %d, %Y}\n Here's your password: \r\n {password_no_brackets} \r\n")
     f.close
-
-# input("Run the app again to generate a new one? y/N")
-# if input == "y":
-#     # print(f"Here's another password: {generated_password}")
-#     f = open("generated_passwords.txt", "a")
-#     f.write(
-#         f"{today:%B %d, %Y}\n Here's your password: \r\n {(str(password(1))[:200])} \r\n"
-#     )
-#     f.close
