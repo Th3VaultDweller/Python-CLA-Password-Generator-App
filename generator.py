@@ -6,7 +6,7 @@ from os.path import exists, isfile
 path = "generated_passwords.txt"
 
 
-def password(random_symbols):
+def get_password(random_symbols):
     random_symbols = list(
         random.choices(string.hexdigits, k=5)
         + random.choices(string.punctuation, k=3)
@@ -15,9 +15,11 @@ def password(random_symbols):
     return random_symbols
 
 
-generated_password = str(password(1))[:200]
+generated_password = (get_password(1))[:200]
+password_no_brackets = "".join(generated_password)
 today = datetime.datetime.today()  # дата создания пароля
 
+print(f"Here's your password: {(password_no_brackets)}")
 
 if path:
     # если файл существует, в него прикрепляется сгенерированный пароль
@@ -29,10 +31,6 @@ else:
     f = open("generated_passwords.txt", "w+")
     f.write(f"{today:%B %d, %Y}\n Here's your password: \r\n {generated_password} \r\n")
     f.close
-
-
-print(f"Here's your password: {(generated_password)}")
-
 
 # input("Run the app again to generate a new one? y/N")
 # if input == "y":
