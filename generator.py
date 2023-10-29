@@ -21,13 +21,18 @@ today = datetime.datetime.today()  # дата создания пароля
 
 print(f"Here's your password: {(password_no_brackets)}")
 
-if path:
-    # если файл существует, в него прикрепляется сгенерированный пароль
-    f = open("generated_passwords.txt", "a")
-    f.write(f"{today:%B %d, %Y}\n Here's your password: {password_no_brackets} \r\n")
-    f.close
-else:
-    # если файла не существует, он создаётся, и в него записывается пароль
-    f = open("generated_passwords.txt", "w+")
-    f.write(f"{today:%B %d, %Y}\n Here's your password: {password_no_brackets} \r\n")
-    f.close
+while True:
+    input("Run the app again to generate a new one? Y/N ")
+    if input=="Y":
+        if path:
+            # если файл существует, в него прикрепляется сгенерированный пароль
+            f = open("generated_passwords.txt", "a")
+            f.write(f"{today:%B %d, %Y}\n Here's your password: {password_no_brackets} \r\n")
+            f.close
+        else:
+            # если файла не существует, он создаётся, и в него записывается пароль
+            f = open("generated_passwords.txt", "w+")
+            f.write(f"{today:%B %d, %Y}\n Here's your password: {password_no_brackets} \r\n")
+            f.close
+    else:
+        break
