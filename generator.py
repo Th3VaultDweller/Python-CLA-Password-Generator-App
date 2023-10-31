@@ -24,6 +24,7 @@ print(f"Here's your password: {(password_no_brackets)}")
 while True:
     repeat = input("Run the app again to generate a new one? Y/N\n")
     if repeat == "Y" or "y":
+        print(f"Here's your password: {(password_no_brackets)}")
         if path:
             # если файл существует, в него прикрепляется сгенерированный пароль
             f = open("generated_passwords.txt", "a")
@@ -31,15 +32,14 @@ while True:
                 f"{today:%B %d, %Y}\n Here's your password: {password_no_brackets} \r\n"
             )
             f.close
-            print(f"Here's your password: {(password_no_brackets)}")
         else:
             # если файла не существует, он создаётся, и в него записывается пароль
+            print(f"Here's your password: {(password_no_brackets)}")
             f = open("generated_passwords.txt", "w+")
             f.write(
                 f"{today:%B %d, %Y}\n Here's your password: {password_no_brackets} \r\n"
             )
             f.close
-            print(f"Here's your password: {(password_no_brackets)}")
     else:
         print("Closing the app. See you soon")
         break
