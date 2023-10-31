@@ -1,6 +1,7 @@
 import datetime
 import random
 import string
+import secrets
 from os.path import exists, isfile
 
 path = "generated_passwords.txt"
