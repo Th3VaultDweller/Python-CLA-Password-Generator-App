@@ -1,7 +1,7 @@
 import datetime
 import random
-import string
 import secrets
+import string
 from os.path import exists, isfile
 
 path = "generated_passwords.txt"
@@ -9,9 +9,15 @@ path = "generated_passwords.txt"
 
 def get_password(random_symbols):
     random_symbols = list(
-        random.choices(string.hexdigits, k=5)
-        + random.choices(string.punctuation, k=3)
-        + random.choices(string.hexdigits, k=5)
+        secrets.choice(string.hexdigits)
+        + secrets.choice(string.punctuation)
+        + secrets.choice(string.hexdigits)
+        + secrets.choice(string.hexdigits)
+        + secrets.choice(string.punctuation)
+        + secrets.choice(string.hexdigits)
+        + secrets.choice(string.hexdigits)
+        + secrets.choice(string.punctuation)
+        + secrets.choice(string.hexdigits)
     )
     return random_symbols
 
@@ -43,11 +49,13 @@ password_no_brackets = "".join(generated_password)
 today = datetime.datetime.today()  # дата создания пароля
 
 while True:
-    print(f"Here's your password: {(password_no_brackets)}")
-    user_input(1)
-    if path:
+    if user_input == "Y" or "y":
+        # вывод и запись одного и того же пароля в терминал и в файл
+        print(f"Here's your password: {(password_no_brackets)}")
         write_password(1)
 
-    if user_input == "N" or "n":
-        print("Closing the app. See you soon")
+    else:
+        print("Closing the app. See you soon.")
         break
+
+    user_input(1)
