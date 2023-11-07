@@ -26,7 +26,7 @@ def user_input(self):
     input("Run the app again to generate a new one? Y/N\n")
 
 
-def write_password(self):
+def write_password_to_file(self):
     if path:
         # если файл существует, в него прикрепляется сгенерированный пароль
         f = open("generated_passwords.txt", "a")
@@ -52,10 +52,10 @@ while True:
     if user_input == "Y" or "y":
         # вывод и запись одного и того же пароля в терминал и в файл
         print(f"Here's your password: {(password_no_brackets)}")
-        write_password(1)
+        write_password_to_file(1)
 
-    else:
+    if user_input == "N" or "n":
         print("Closing the app. See you soon.")
         break
 
-    user_input(1)
+    # user_input(1)
