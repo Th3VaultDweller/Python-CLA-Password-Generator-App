@@ -49,14 +49,11 @@ password_no_brackets = "".join(generated_password)
 today = datetime.datetime.today()  # дата создания пароля
 
 while True:
-    write_password_to_file(1)
-    print(f"Here's your password: {(password_no_brackets)}")
-    # user_input = user_input(1)
     if user_input(1) == "Y" or "y":
+        print(f"Here's your password: {(password_no_brackets)}")
         # вывод и запись одного и того же пароля в терминал и в файл
         write_password_to_file(1)
-        print(f"Here's your password: {(password_no_brackets)}")
-        
+        print(f"Here's your another password: {(password_no_brackets)}")
 
     if user_input == "N" or "n":
         print("Closing the app. See you soon.")
