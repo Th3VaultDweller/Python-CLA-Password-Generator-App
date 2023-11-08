@@ -23,7 +23,7 @@ def get_password(password_length):
 
 
 def user_input(self):
-    input("Run the app again to generate a new one? Y/N\n")
+    input("Run the app again to generate a new one? Press Y to do so.\n")
 
 
 def write_password_to_file(self):
@@ -53,6 +53,6 @@ while True:
     write_password_to_file(1)
     print(f"Here's your another password: {(get_password(password_length))}")
 
-    if user_input == "N" or "n":
+    if not user_input:
         print("Closing the app. See you soon.")
         break
